@@ -3,6 +3,7 @@ var mainImgUI = document.getElementById("main-img");
 var mainWordUI = document.getElementById("main-word");
 var lettersUsedUI = document.getElementById("used-so-far");
 var totalWinsUI = document.getElementById("total-wins");
+var totalLossesUI = document.getElementById("total-losses");
 var triesLeftUI = document.getElementById("tries-left");
 var navNewGame = document.getElementById("nav-new-game");
 
@@ -12,6 +13,8 @@ var usedSoFar = [];
 var currentWord = [];
 var currentWordHidden = [];
 var gamesPlayed = 0;
+var winsCount = 0;
+var lossesCount = 0;
 
 document.onkeypress = function(event) {
     if(gamesPlayed === 0) {
@@ -22,6 +25,7 @@ document.onkeypress = function(event) {
 
         var regex1 = RegExp('^[a-zA-Z]+$');
         if(regex1.test(codeChar) !== true) {
+            showAlert("Please enter letters only.", 1);
             return;
         }
         
@@ -46,7 +50,6 @@ document.onkeypress = function(event) {
         };
 
         triesLeftUI.innerHTML = totalTries;
-        totalWinsUI.innerHTML = totalWins;
     };
 };
 
@@ -89,7 +92,8 @@ function startGame(restart) {
 
     lettersUsedUI.innerHTML = usedSoFar.join(" ");
     triesLeftUI.innerHTML = totalTries;
-    totalWinsUI.innerHTML = totalWins;
+    totalWinsUI.innerHTML = winsCount;
+    totalLossesUI.innerHTML = lossesCount;
 
     setBackDrop();
 };
@@ -117,6 +121,7 @@ function letterMatchAction(letter) {
     showAlert("Yes, " + letter + " is part of the mystery word.", 1);
     if(totalWins == currentWord.length) {
         showAlert("You have won!!", 1);
+        winsCount++;
         startGame(1)
     };
 };
@@ -124,6 +129,7 @@ function letterMatchAction(letter) {
 function letterMisMatchAction(letter) {
     if(totalTries < 1) {
         showAlert("You have lost. Try again.", 1);
+        lossesCount++;
         startGame(1);
     } else {
         showAlert("Letter " + letter + " is not part of the mistery word.\nYou have " + totalTries + " tries left.", 1);
