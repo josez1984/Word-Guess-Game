@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
     <body>
-        <nav class="navbar navbar-expand-sm navbar-expand-md navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-sm navbar-expand-md navbar-dark bg-dark">
             <a class="navbar-brand" href="#">Word Guess Game</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,48 +22,25 @@
         </nav>
 
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-12">
-                    <img id="main-img" class="img-fluid m-2 p-2 border border-dark">
-                </div>
+            <div class="d-flex flex-row justify-content-center">
+                <img id="main-img" class="img-fluid mt-2 pt-2 border border-dark">
+                
             </div>
-            <div class="row">
-                <div class="col-sm-12 col-md-12">
-                    <div class="container m-2 p-2 border border-dark">
-                        <div class="row">
-                            <div class="col-sm-2 col-md-2">
-                                <p>Word:</p>
-                            </div>
-                            <div class="col-sm-10 col-md-10">
-                                <p id="main-word"></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4 col-md-4">
-                                <p>Used so far:</p>
-                            </div>
-                            <div class="col-sm-8 col-md-8">
-                                <p id="used-so-far"></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4 col-md-4">
-                                <p>Total Wins:</p>
-                            </div>
-                            <div class="col-sm-8 col-md-8">
-                                <p id="total-wins"></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4 col-md-4">
-                                <p>Tries Remaining:</p>
-                            </div>
-                            <div class="col-sm-8 col-md-8">
-                                <p id="tries-left"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="d-flex flex-row">
+                <p class="flex-shrink-1 border-bottom border-dark">Word:</p>    
+                <p id="main-word" class="flex-grow-1 border-bottom border-dark text-center"></p>
+            </div>
+            <div class="d-flex flex-row">                    
+                <p class="border-bottom border-dark">Used so far:</p>    
+                <p class="flex-grow-1 border-bottom border-dark text-center" id="used-so-far"></p>                    
+            </div>
+            <div class="d-flex flex-row">                    
+                <p class="border-bottom border-dark">Total Wins:</p>    
+                <p class="flex-grow-1 border-bottom border-dark text-center" id="total-wins"></p>                    
+            </div>
+            <div class="d-flex flex-row">                    
+                <p class="border-bottom border-dark">Total Wins:</p>    
+                <p class="flex-grow-1 border-bottom border-dark text-center" id="tries-left"></p>                    
             </div>
         </div>
     </body>
