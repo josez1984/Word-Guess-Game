@@ -32,12 +32,8 @@ document.onkeypress = function(event) {
         };
   
         lettersUsedUI.innerHTML = usedSoFar.join(" ");
-        triesLeftUI.innerHTML = totalTries;
-
         var maskedWord = getMaskedWord(currentWord, usedSoFar);
         mainWordUI.innerHTML = maskedWord;
-
-        totalWinsUI.innerHTML = totalWins;
 
         if(newLetter == 1) {
             if(currentWord.indexOf(codeChar.toUpperCase()) == -1) {
@@ -45,14 +41,18 @@ document.onkeypress = function(event) {
                 letterMisMatchAction(codeChar.toUpperCase());
             } else {
                 totalWins++;
-                letterMatchAction();
+                letterMatchAction(codeChar.toUpperCase());
             };
-        }
+        };
+
+        triesLeftUI.innerHTML = totalTries;
+        totalWinsUI.innerHTML = totalWins;
     };
 };
 
 window.onload = function() {
     mainImgUI.src = "assets/images/hangman-0.jpg";
+    showAlert("Press any key to start playing", 0);
 };
 
 navNewGame.addEventListener("click", function() {
@@ -66,15 +66,20 @@ function reStartGame() {
     }
 };
 
-function startGame(restart) {
-    var msg = "The game is about to start.";
-    if(restart === 1) { msg = "The game is about to restart."; }
-    alert(msg);
+function showAlert(message, autoClose) {
+    $('#alert_placeholder').append('<div id="alertdiv" class="alert alert-custom alert-dismissible fade show navbar-dark bg-dark"><a id="alert-text" class="close" data-dismiss="alert">×</a><span>'+message+'</span></div>')
+    if(autoClose == 1) {
+        setTimeout(function() { 
+            $(".alert").alert('close');
+        }, 2500);
+    };
+};
 
+function startGame(restart) {
+    showAlert("A new game is about to begin.", 1);
+    
     gamesPlayed++;
     reInitialize();
-    // startGameBtnUI.style.display = "none";
-    //ScoreUI('show');
 
     var words = getWords();
     var word = words[Math.floor(Math.random()*words.length)].toUpperCase();
@@ -108,21 +113,20 @@ function getMaskedWord (currentWord, currentGuessed) {
     return maskedWord;
 };
 
-function letterMatchAction() {
-    console.log("Letter Match");
+function letterMatchAction(letter) {
+    showAlert("Yes, " + letter + " is part of the mystery word.", 1);
     if(totalWins == currentWord.length) {
-        alert("You have won!");
+        showAlert("You have won!!", 1);
         startGame(1)
     };
 };
 
 function letterMisMatchAction(letter) {
-    console.log("Letter MisMatch");
     if(totalTries < 1) {
-        alert("You have lost. Try again.");
+        showAlert("You have lost. Try again.", 1);
         startGame(1);
     } else {
-        alert("Letter " + letter + " is not part of the mistery word.\nYou have " + totalTries + " tries left.");
+        showAlert("Letter " + letter + " is not part of the mistery word.\nYou have " + totalTries + " tries left.", 1);
     }
     setBackDrop();
 };

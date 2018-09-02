@@ -2,6 +2,9 @@
     border-style: solid;
     border-width: 20px;
 }
+.alert-custom {
+    color: white;
+}
 #main-img {
     width: 25%;
     height: 25%;
