@@ -66,7 +66,7 @@ function reStartGame() {
     var restart = confirm("Are you sure you want to restart the game?");
     if(restart == true) { 
         startGame(1);
-    }
+    };
 };
 
 function showAlert(message, autoClose) {
@@ -106,7 +106,7 @@ function getMaskedWord (currentWord, currentGuessed) {
             if(currentGuessed[x].toUpperCase() == currentWord[i].toUpperCase()) {
                 mask = 0;
                 break;
-            }
+            };
         };
         if(mask == 1) {
             maskedWord = "_ " + maskedWord;    
