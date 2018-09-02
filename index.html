@@ -16,8 +16,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                <a class="nav-item nav-link" href="#">New Game</a>
-                <a class="nav-item nav-link" href="#">Instructions</a>
+                <a id="nav-new-game" class="nav-item nav-link" href="#">New Game</a>
                 </div>
             </div>
         </nav>
@@ -32,26 +31,35 @@
                 <div class="col-sm-12 col-md-12">
                     <div class="container m-2 p-2 border border-dark">
                         <div class="row">
-                            <div class="col-sm-12 col-md-12">
-                                <button id="start-game-btn" type="button" class="btn btn-primary btn-lg btn-block border-light bg-dark">Press any key to get started!</button>
+                            <div class="col-sm-2 col-md-2">
+                                <p>Word:</p>
+                            </div>
+                            <div class="col-sm-10 col-md-10">
+                                <p id="main-word"></p>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-12 col-md-12">
-                                <p id="main-word">Word: </p>
+                            <div class="col-sm-4 col-md-4">
+                                <p>Used so far:</p>
+                            </div>
+                            <div class="col-sm-8 col-md-8">
+                                <p id="used-so-far"></p>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-12 col-md-12">
-                                <p id="used-so-far">Used so far: </p>
+                            <div class="col-sm-4 col-md-4">
+                                <p>Total Wins:</p>
+                            </div>
+                            <div class="col-sm-8 col-md-8">
+                                <p id="total-wins"></p>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6 col-md-6">
-                                <p id="total-wins">Total Wins: </p>
+                            <div class="col-sm-4 col-md-4">
+                                <p>Tries Remaining:</p>
                             </div>
-                            <div class="col-sm-6 col-md-6">
-                                <p id="tries-left">Tries Remaining: </p>
+                            <div class="col-sm-8 col-md-8">
+                                <p id="tries-left"></p>
                             </div>
                         </div>
                     </div>
